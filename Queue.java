@@ -10,8 +10,9 @@ public class Queue<T> {
 
     public T remove() {
         if(first == null) throw new EmptyException();
-        T data = first.data;
-        first = first.next;
+        T data = this.first.data;
+        this.first = this.first.next;
+        if(this.first == null) this.last = null;
         return data;
     }
 
@@ -46,6 +47,10 @@ public class Queue<T> {
         System.out.println(q.remove());
         System.out.println(q.peek());
         System.out.println(q.remove());
+        System.out.println(q.isEmpty());
+        q.add(3);
+        System.out.println(q.isEmpty());
+        System.out.println(q.peek());
         System.out.println(q.isEmpty());
         //System.out.println(s.pop());
     }
